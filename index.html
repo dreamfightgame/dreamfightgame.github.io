@@ -7,17 +7,25 @@
     <meta name="description" content="DreamFight">
     <meta name="keywords" content="Japancool, ATP, Tennis, 2025">
 
+    <link rel="preload" href="dreamfight.svg" as="image">
+    <link rel="preload" href="tennis_transformed.svg" as="image">
+    <link rel="preload" href="2025.svg" as="image">
+    <link rel="preload" href="brought_to_you_by.svg" as="image">
+    <link rel="preload" href="japancool_x_atp.svg" as="image">
+
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: black;
+            width: 100%;
         }
 
-        .center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .opacity-0 {
@@ -28,80 +36,86 @@
             animation: fadeIn 2s ease-in forwards;
         }
 
-        .top-140 {
-            top: 140;
-        }
-
         @keyframes fadeIn {
             to {
                 opacity: 1;
             }
         }
 
-        #df_video {
-            position: absolute;
-            top: -220;
-            left: 50%;
-            transform: translateX(-50%);
-            object-fit: cover;
+        #dreamfight {
+            width: 100%;
+            max-width: 1080px;
             z-index: -1;
         }
 
-        @media (max-width: 720px) {
-
-            #df_video {
-                top: -85;
-                width: 1440;
-                height: 810;
-            }
+        #tennis_transformed {
+            width: 100%;
+            max-width: 800px;
         }
 
+        .shine {
+            position: relative;
+            overflow: hidden;
 
-        @media (max-width: 500px) {
-
-            #df_video {
-                top: -4;
-                width: 1152;
-                height: 648;
+            &::before {
+                background: linear-gradient(to right,
+                        fade_out(#fff, 1) 0%,
+                        fade_out(#fff, 0.7) 100%);
+                content: "";
+                display: block;
+                height: 100%;
+                left: -75%;
+                position: absolute;
+                top: 0;
+                transform: skewX(-25deg);
+                width: 50%;
+                z-index: 2;
+                animation: shine 0.85s;
             }
 
-            #tennis_transformed {
-                width: 374;
-                height: 47;
+            @keyframes shine {
+                100% {
+                    left: 125%;
+                }
             }
         }
     </style>
 </head>
 
 <body>
-    <object id="presenting" style="top:140" class="center opacity-0 fade-in" type="image/svg+xml"
-        data="presenting.svg"></object>
-    <video id="df_video" muted preload="auto">
-        <source src="intro.mp4" type="video/mp4">
-    </video>
-    <object id="tennis_transformed" style="top:480" class="center opacity-0" type="image/svg+xml"
-        data="tennis_transformed.svg" alt="Tennis transformed"></object>
-    <object style="top:550" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
-    <object style="top:700" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
-        alt="brought to you by"></object>
-    <object style="top:730" class="center opacity-0" type="image/svg+xml" data="japancool_x_atp.svg"
-        alt="Japancool x ATP"></object>
+    <div class="container">
+        <object id="presenting" style="margin-top:140" class="center opacity-0 fade-in" type="image/svg+xml"
+            data="presenting.svg"></object>
+        <div id="shine" class="shine">
+            <object id="dreamfight" class="center opacity-0 shine" type="image/svg+xml" data="dreamfight.svg"
+                alt="Dreamfight">
+            </object>
+        </div>
 
+        <object id="tennis_transformed" style="margin-top:10px;" class="center opacity-0" type="image/svg+xml"
+            data="tennis_transformed.svg" alt="Tennis transformed"></object>
+        <object style="" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
+        <object style="margin-top:150px" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
+            alt="brought to you by"></object>
+        <object style="margin-top:10px;margin-bottom:10px" class="center opacity-0" type="image/svg+xml"
+            data="japancool_x_atp.svg" alt="Japancool x ATP"></object>
+    </div>
 </body>
 <script>
     var video = document.getElementById('df_video');
     var presenting = document.getElementById('presenting');
+    var dreamfight = document.getElementById('dreamfight');
     presenting.addEventListener('animationend', function () {
-        video.play();
-    });
+        dreamfight.classList.add('fade-in');
 
-    video.ontimeupdate = function () {
-        if (video.currentTime >= 4) {
-            document.querySelectorAll('.opacity-0').forEach(function (element) {
-                element.classList.add('fade-in');
-            });
-        }
-    };
+        dreamfight.addEventListener('animationend', function () {
+            setTimeout(function () {
+                document.querySelectorAll('.opacity-0').forEach(function (element) {
+                    element.classList.add('fade-in');
+                });
+            }, 250);
+        });
+    });
 </script>
 
 </html>
