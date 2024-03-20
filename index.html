@@ -7,10 +7,12 @@
     <meta name="description" content="DreamFight">
     <meta name="keywords" content="Japancool, ATP, Tennis, 2025">
 
+    <link rel="preload" href="dreamfight_no_loop.gif" as="image">
+
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
             background-color: black;
         }
 
@@ -28,80 +30,157 @@
             animation: fadeIn 2s ease-in forwards;
         }
 
-        .top-140 {
-            top: 140;
-        }
-
         @keyframes fadeIn {
             to {
                 opacity: 1;
             }
         }
 
-        #df_video {
+        #presenting {
+            top: 140px;
+        }
+
+        #dreamfight {
             position: absolute;
-            top: -220;
+            top: -220px;
             left: 50%;
             transform: translateX(-50%);
             object-fit: cover;
             z-index: -1;
+            width: 100vw;
+            height: 1080px;
+            object-fit: cover;
+        }
+
+        #tennis_transformed {
+            top: 480px;
+        }
+
+        #year_2025 {
+            top: 550px;
+        }
+
+        #brought_to_you_by {
+            top: 700px;
+        }
+
+        #japancool_x_atp {
+            top: 730px;
         }
 
         @media (max-width: 720px) {
 
-            #df_video {
-                top: -85;
-                width: 1440;
-                height: 810;
-            }
-        }
-
-
-        @media (max-width: 500px) {
-
-            #df_video {
-                top: -4;
-                width: 1152;
-                height: 648;
+            #dreamfight {
+                top: -115px;
+                height: 810px;
             }
 
             #tennis_transformed {
-                width: 374;
-                height: 47;
+                top: 400px;
             }
+
+            #year_2025 {
+                top: 470px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            #dreamfight {
+                top: -40px;
+                height: 648px;
+            }
+
+            #tennis_transformed {
+                top: 390px;
+                width: 374px;
+                height: 47px;
+            }
+
+            #year_2025 {
+                top: 460px;
+            }
+
+            #brought_to_you_by {
+                top: 550px;
+            }
+
+            #japancool_x_atp {
+                top: 580px;
+            }
+        }
+
+        @media (max-width: 390px) {
+
+
+            #dreamfight {
+                top: -30px;
+                height: 580px;
+            }
+
+            #tennis_transformed {
+                top: 350px;
+                width: 354px;
+                height: 47px;
+            }
+
+            #year_2025 {
+                top: 420px;
+            }
+
+            #brought_to_you_by {
+                top: 550px;
+            }
+
+            #japancool_x_atp {
+                top: 580px;
+            }
+        }
+
+        .overflow-hidden {
+            overflow-x: hidden;
+            width: 100vw;
         }
     </style>
 </head>
 
 <body>
-    <object id="presenting" style="top:140" class="center opacity-0 fade-in" type="image/svg+xml"
-        data="presenting.svg"></object>
-    <video id="df_video" muted preload="auto">
-        <source src="intro.mp4" type="video/mp4">
-    </video>
-    <object id="tennis_transformed" style="top:480" class="center opacity-0" type="image/svg+xml"
-        data="tennis_transformed.svg" alt="Tennis transformed"></object>
-    <object style="top:550" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
-    <object style="top:700" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
-        alt="brought to you by"></object>
-    <object style="top:730" class="center opacity-0" type="image/svg+xml" data="japancool_x_atp.svg"
-        alt="Japancool x ATP"></object>
+    <div id="wrapper">
+        <object id="presenting" class="center opacity-0 fade-in" type="image/svg+xml" data="presenting.svg"></object>
+        <img id="dreamfight" class="center opacity-0" src="dreamfight_no_loop.gif" alt="DreamFight">
+        <object id="tennis_transformed" class="center opacity-0" type="image/svg+xml" data="tennis_transformed.svg"
+            alt="Tennis transformed"></object>
+        <object id="year_2025" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
+        <object id="brought_to_you_by" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
+            alt="brought to you by"></object>
+        <object id="japancool_x_atp" class="center opacity-0" type="image/svg+xml" data="japancool_x_atp.svg"
+            alt="Japancool x ATP"></object>
+    </div>
 
 </body>
 <script>
-    var video = document.getElementById('df_video');
+    var dreamfight = document.getElementById('dreamfight');
     var presenting = document.getElementById('presenting');
-    presenting.addEventListener('animationend', function () {
-        video.play();
-    });
 
-    video.ontimeupdate = function () {
-        if (video.currentTime >= 4) {
+    function fadeInDreamfight() {
+        dreamfight.classList.add('fade-in');
+
+        dreamfight.addEventListener('animationend', function () {
             document.querySelectorAll('.opacity-0').forEach(function (element) {
                 element.classList.add('fade-in');
             });
+        });
+    }
+
+    presenting.addEventListener('animationend', function () {
+        if (dreamfight.complete) {
+            fadeInDreamfight();
+        } else {
+            dreamfight.addEventListener('load', function () {
+                fadeInDreamfight();
+            });
         }
-    };
+    });
 </script>
 
 </html>
