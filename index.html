@@ -36,6 +36,10 @@
             }
         }
 
+        #presenting {
+            top: 140px;
+        }
+
         #dreamfight {
             position: absolute;
             top: -220px;
@@ -48,25 +52,88 @@
             object-fit: cover;
         }
 
+        #tennis_transformed {
+            top: 480px;
+        }
+
+        #year_2025 {
+            top: 550px;
+        }
+
+        #brought_to_you_by {
+            top: 700px;
+        }
+
+        #japancool_x_atp {
+            top: 730px;
+        }
+
         @media (max-width: 720px) {
 
             #dreamfight {
-                top: -85px;
+                top: -115px;
                 height: 810px;
             }
-        }
 
+            #tennis_transformed {
+                top: 400px;
+            }
+
+            #year_2025 {
+                top: 470px;
+            }
+        }
 
         @media (max-width: 500px) {
 
             #dreamfight {
-                top: -4px;
+                top: -40px;
                 height: 648px;
             }
 
             #tennis_transformed {
+                top: 390px;
                 width: 374px;
                 height: 47px;
+            }
+
+            #year_2025 {
+                top: 460px;
+            }
+
+            #brought_to_you_by {
+                top: 550px;
+            }
+
+            #japancool_x_atp {
+                top: 580px;
+            }
+        }
+
+        @media (max-width: 390px) {
+
+
+            #dreamfight {
+                top: -30px;
+                height: 580px;
+            }
+
+            #tennis_transformed {
+                top: 350px;
+                width: 354px;
+                height: 47px;
+            }
+
+            #year_2025 {
+                top: 420px;
+            }
+
+            #brought_to_you_by {
+                top: 550px;
+            }
+
+            #japancool_x_atp {
+                top: 580px;
             }
         }
 
@@ -79,15 +146,14 @@
 
 <body>
     <div id="wrapper">
-        <object id="presenting" style="top:140px" class="center opacity-0 fade-in" type="image/svg+xml"
-            data="presenting.svg"></object>
+        <object id="presenting" class="center opacity-0 fade-in" type="image/svg+xml" data="presenting.svg"></object>
         <img id="dreamfight" class="center opacity-0" src="dreamfight_no_loop.gif" alt="DreamFight">
-        <object id="tennis_transformed" style="top:480px" class="center opacity-0" type="image/svg+xml"
-            data="tennis_transformed.svg" alt="Tennis transformed"></object>
-        <object style="top:550px" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
-        <object style="top:700px" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
+        <object id="tennis_transformed" class="center opacity-0" type="image/svg+xml" data="tennis_transformed.svg"
+            alt="Tennis transformed"></object>
+        <object id="year_2025" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
+        <object id="brought_to_you_by" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
             alt="brought to you by"></object>
-        <object style="top:730px" class="center opacity-0" type="image/svg+xml" data="japancool_x_atp.svg"
+        <object id="japancool_x_atp" class="center opacity-0" type="image/svg+xml" data="japancool_x_atp.svg"
             alt="Japancool x ATP"></object>
     </div>
 
