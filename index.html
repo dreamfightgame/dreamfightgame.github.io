@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>Japancool</title>
+    <link rel="icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DreamFight">
+    <meta name="keywords" content="Japancool, ATP, Tennis, 2025">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        .top-140 {
+            top: 140;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        #df_video {
+            position: absolute;
+            top: -220;
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        @media (max-width: 720px) {
+
+            #df_video {
+                top: -85;
+                width: 1440;
+                height: 810;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            #df_video {
+                top: -4;
+                width: 1152;
+                height: 648;
+            }
+
+            #tennis_transformed {
+                width: 374;
+                height: 47;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <object id="presenting" style="top:140" class="center opacity-0 fade-in" type="image/svg+xml"
+        data="presenting.svg"></object>
+    <video id="df_video" muted preload="auto">
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+    <object id="tennis_transformed" style="top:480" class="center opacity-0" type="image/svg+xml"
+        data="tennis_transformed.svg" alt="Tennis transformed"></object>
+    <object style="top:550" class="center opacity-0" type="image/svg+xml" data="2025.svg" alt="2025"></object>
+    <object style="top:700" class="center opacity-0" type="image/svg+xml" data="brought_to_you_by.svg"
+        alt="brought to you by"></object>
+    <object style="top:730" class="center opacity-0" type="image/svg+xml" data="japancool_x_atp.svg"
+        alt="Japancool x ATP"></object>
+
+</body>
+<script>
+    var video = document.getElementById('df_video');
+    var presenting = document.getElementById('presenting');
+    presenting.addEventListener('animationend', function () {
+        video.play();
+    });
+
+    video.ontimeupdate = function () {
+        if (video.currentTime >= 4) {
+            document.querySelectorAll('.opacity-0').forEach(function (element) {
+                element.classList.add('fade-in');
+            });
+        }
+    };
+</script>
+
+</html>
