@@ -1,220 +1,249 @@
 <html>
+    <head>
+        <title>Dreamfight</title>
+        <link rel="icon" href="favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="DreamFight" />
+        <meta
+            name="keywords"
+            content="DreamFight, Dream Fight, Dreamfight, Japancool, ATP, Tennis, 2025"
+        />
 
-<head>
-    <title>Dreamfight</title>
-    <link rel="icon" href="favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="DreamFight">
-    <meta name="keywords" content="DreamFight, Dream Fight, Dreamfight, Japancool, ATP, Tennis, 2025">
+        <link rel="preload" href="dreamfight.png" as="image" />
 
-    <link rel="preload" href="dreamfight.png" as="image">
-
-
-    <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-            background-color: black;
-        }
-
-        .center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .opacity-0 {
-            opacity: 0;
-        }
-
-        .fade-in {
-            animation: fadeIn 2s ease-in forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        #presenting {
-            top: 140px;
-        }
-
-        #dreamfight {
-            position: absolute;
-            top: 170px;
-            left: 50%;
-            transform: translateX(-50%);
-            object-fit: cover;
-            z-index: -1;
-            /* width: 100vw; */
-            height: 290px;
-            object-fit: cover;
-        }
-
-        #tennis_transformed {
-            top: 480px;
-        }
-
-        #year_2025 {
-            top: 550px;
-        }
-
-        #brought_to_you_by {
-            top: 700px;
-        }
-
-        #japancool {
-            top: 730px;
-        }
-
-        #mail {
-            top: 810px;
-            padding-bottom: 50px;
-        }
-
-        @media (max-width: 720px) {
-
-            #dreamfight {
-                top: 170px;
-                height: 210px;
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                background-color: black;
             }
 
-            #tennis_transformed {
-                top: 400px;
+            .center {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
-            #year_2025 {
-                top: 470px;
+            .opacity-0 {
+                opacity: 0;
             }
 
-            #brought_to_you_by {
-                top: 600px;
+            .fade-in {
+                animation: fadeIn 2s ease-in forwards;
             }
 
-            #japancool {
-                top: 630px;
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
             }
-
-            #mail {
-                top: 710px;
-            }
-        }
-
-        @media (max-width: 500px) {
 
             #presenting {
-                top: 90px;
-            }
-
-            #dreamfight {
                 top: 140px;
-                height: 160px;
-            }
-
-            #tennis_transformed {
-                top: 340px;
-                width: 374px;
-                height: 47px;
-            }
-
-            #year_2025 {
-                top: 390px;
-            }
-
-            #brought_to_you_by {
-                top: 520px;
-            }
-
-            #japancool {
-                top: 550px;
-            }
-
-            #mail {
-                top: 630px;
-            }
-        }
-
-        @media (max-width: 390px) {
-
-            #presenting {
-                top: 90px;
             }
 
             #dreamfight {
-                top: 135px;
-                height: 140px;
+                position: absolute;
+                top: 170px;
+                left: 50%;
+                transform: translateX(-50%);
+                object-fit: cover;
+                z-index: -1;
+                /* width: 100vw; */
+                height: 290px;
+                object-fit: cover;
             }
 
             #tennis_transformed {
-                top: 300px;
-                width: 354px;
-                height: 47px;
-            }
-
-            #year_2025 {
-                top: 350px;
-            }
-
-            #brought_to_you_by {
                 top: 480px;
             }
 
+            #year_2025 {
+                top: 550px;
+            }
+
+            #brought_to_you_by {
+                top: 700px;
+            }
+
             #japancool {
-                top: 510px;
+                top: 730px;
             }
 
             #mail {
-                top: 590px;
+                top: 810px;
+                padding-bottom: 50px;
             }
-        }
 
-        .overflow-hidden {
-            overflow-x: hidden;
-            width: 100vw;
-        }
-    </style>
-</head>
+            @media (max-width: 720px) {
+                #dreamfight {
+                    top: 170px;
+                    height: 210px;
+                }
 
-<body>
-    <div id="wrapper">
-        <img id="presenting" class="center opacity-0 fade-in" src="presenting.png" alt="presenting">
-        <img id="dreamfight" class="center opacity-0" src="dreamfight.png" alt="dream fight">
-        <img id="tennis_transformed" class="center opacity-0" src="tennis_transformed.png" alt="tennis transformed">
-        <img id="year_2025" class="center opacity-0" src="2025.png" alt="2025">
-        <img id="brought_to_you_by" class="center opacity-0" src="brought_to_you_by.png" alt="brought to you by">
-        <img id="japancool" class="center opacity-0" src="japancool.png" alt="japan cool">
-        <div id="mail" class="center opacity-0">
-            <a href="mailto:workwith@dreamfight.io">
-                <img src="mail.png" alt="workwith@dreamfight.io">
-            </a>
+                #tennis_transformed {
+                    top: 400px;
+                }
+
+                #year_2025 {
+                    top: 470px;
+                }
+
+                #brought_to_you_by {
+                    top: 600px;
+                }
+
+                #japancool {
+                    top: 630px;
+                }
+
+                #mail {
+                    top: 710px;
+                }
+            }
+
+            @media (max-width: 500px) {
+                #presenting {
+                    top: 90px;
+                }
+
+                #dreamfight {
+                    top: 140px;
+                    height: 160px;
+                }
+
+                #tennis_transformed {
+                    top: 340px;
+                    width: 374px;
+                    height: 47px;
+                }
+
+                #year_2025 {
+                    top: 390px;
+                }
+
+                #brought_to_you_by {
+                    top: 520px;
+                }
+
+                #japancool {
+                    top: 550px;
+                }
+
+                #mail {
+                    top: 630px;
+                }
+            }
+
+            @media (max-width: 390px) {
+                #presenting {
+                    top: 90px;
+                }
+
+                #dreamfight {
+                    top: 135px;
+                    height: 140px;
+                }
+
+                #tennis_transformed {
+                    top: 300px;
+                    width: 354px;
+                    height: 47px;
+                }
+
+                #year_2025 {
+                    top: 350px;
+                }
+
+                #brought_to_you_by {
+                    top: 480px;
+                }
+
+                #japancool {
+                    top: 510px;
+                }
+
+                #mail {
+                    top: 590px;
+                }
+            }
+
+            .overflow-hidden {
+                overflow-x: hidden;
+                width: 100vw;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <img
+                id="presenting"
+                class="center opacity-0 fade-in"
+                src="presenting.png"
+                alt="presenting"
+            />
+            <img
+                id="dreamfight"
+                class="center opacity-0"
+                src="dreamfight.png"
+                alt="dream fight"
+            />
+            <img
+                id="tennis_transformed"
+                class="center opacity-0"
+                src="tennis_transformed.png"
+                alt="tennis transformed"
+            />
+            <img
+                id="year_2025"
+                class="center opacity-0"
+                src="2025.png"
+                alt="2025"
+            />
+            <img
+                id="brought_to_you_by"
+                class="center opacity-0"
+                src="brought_to_you_by.png"
+                alt="brought to you by"
+            />
+            <img
+                id="japancool"
+                class="center opacity-0"
+                src="japancool.png"
+                alt="japan cool"
+            />
+            <div id="mail" class="center opacity-0">
+                <a href="mailto:workwith@dreamfight.io">
+                    <img src="mail.png" alt="workwith@dreamfight.io" />
+                </a>
+            </div>
         </div>
-    </div>
-</body>
-<script>
-    var dreamfight = document.getElementById('dreamfight');
-    var presenting = document.getElementById('presenting');
+    </body>
+    <script>
+        var dreamfight = document.getElementById("dreamfight");
+        var presenting = document.getElementById("presenting");
 
-    function fadeInDreamfight() {
-        dreamfight.classList.add('fade-in');
+        function fadeInDreamfight() {
+            dreamfight.classList.add("fade-in");
 
-        dreamfight.addEventListener('animationend', function () {
-            document.querySelectorAll('.opacity-0').forEach(function (element) {
-                element.classList.add('fade-in');
-            });
-        });
-    }
-
-    presenting.addEventListener('animationend', function () {
-        if (dreamfight.complete) {
-            fadeInDreamfight();
-        } else {
-            dreamfight.addEventListener('load', function () {
-                fadeInDreamfight();
+            dreamfight.addEventListener("animationend", function () {
+                document
+                    .querySelectorAll(".opacity-0")
+                    .forEach(function (element) {
+                        element.classList.add("fade-in");
+                    });
             });
         }
-    });
-</script>
 
+        presenting.addEventListener("animationend", function () {
+            if (dreamfight.complete) {
+                fadeInDreamfight();
+            } else {
+                dreamfight.addEventListener("load", function () {
+                    fadeInDreamfight();
+                });
+            }
+        });
+    </script>
 </html>
