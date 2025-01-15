@@ -42,18 +42,6 @@
                 top: 140px;
             }
 
-            #dreamfight {
-                position: absolute;
-                top: 170px;
-                left: 50%;
-                transform: translateX(-50%);
-                object-fit: cover;
-                z-index: -1;
-                /* width: 100vw; */
-                height: 290px;
-                object-fit: cover;
-            }
-
             #tennis_transformed {
                 top: 480px;
             }
@@ -76,11 +64,6 @@
             }
 
             @media (max-width: 720px) {
-                #dreamfight {
-                    top: 170px;
-                    height: 210px;
-                }
-
                 #tennis_transformed {
                     top: 400px;
                 }
@@ -105,11 +88,6 @@
             @media (max-width: 500px) {
                 #presenting {
                     top: 90px;
-                }
-
-                #dreamfight {
-                    top: 140px;
-                    height: 160px;
                 }
 
                 #tennis_transformed {
@@ -140,11 +118,6 @@
                     top: 90px;
                 }
 
-                #dreamfight {
-                    top: 135px;
-                    height: 140px;
-                }
-
                 #tennis_transformed {
                     top: 300px;
                     width: 354px;
@@ -173,6 +146,87 @@
                 width: 100vw;
             }
         </style>
+        <style>
+            #dreamfight {
+                top: 170px;
+                height: 290px;
+            }
+            #dreamfight-img,
+            #dreamfight-mask-image {
+                height: 290px;
+            }
+            #dreamfight {
+                background-position: -740px 0;
+            }
+            #dreamfight:hover,
+            #dreamfight:focus {
+                background-position: 60px 0;
+                /* transition: all 1s; */
+            }
+            #dreamfight::after {
+                content: "";
+                position: absolute;
+                pointer-events: none;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient(
+                        0 0,
+                        circle farthest-side,
+                        rgba(255, 255, 255, 0) 90%,
+                        rgba(255, 255, 255, 0.8) 98%,
+                        rgba(255, 255, 255, 0) 100%
+                    )
+                    no-repeat;
+                background: radial-gradient(
+                        circle farthest-side at 0 0,
+                        rgba(255, 255, 255, 0) 90%,
+                        rgba(255, 255, 255, 0.8) 98%,
+                        rgba(255, 255, 255, 0) 100%
+                    )
+                    no-repeat;
+                background-position: inherit;
+                -webkit-mask: url("dreamfight.webp") center;
+                mask: url("#mask-firefox");
+            }
+
+            @media (max-width: 720px) {
+                #dreamfight {
+                    top: 170px;
+                }
+
+                #dreamfight,
+                #dreamfight-img,
+                #dreamfight-mask-image {
+                    height: 210px;
+                }
+            }
+
+            @media (max-width: 500px) {
+                #dreamfight {
+                    top: 140px;
+                }
+
+                #dreamfight,
+                #dreamfight-img,
+                #dreamfight-mask-image {
+                    height: 160px;
+                }
+            }
+
+            @media (max-width: 390px) {
+                #dreamfight {
+                    top: 135px;
+                }
+
+                #dreamfight,
+                #dreamfight-img,
+                #dreamfight-mask-image {
+                    height: 140px;
+                }
+            }
+        </style>
     </head>
 
     <body>
@@ -183,12 +237,27 @@
                 src="presenting.webp"
                 alt="presenting"
             />
-            <img
-                id="dreamfight"
-                class="center opacity-0"
-                src="dreamfight.webp"
-                alt="dream fight"
-            />
+            <div id="dreamfight" class="center opacity-0">
+                <img
+                    id="dreamfight-img"
+                    src="dreamfight.webp"
+                    alt="dream fight"
+                />
+            </div>
+
+            <svg height="0">
+                <mask id="mask-firefox">
+                    <image
+                        id="dreamfight-mask-image"
+                        xlink:href="dreamfight.webp"
+                        filter="url(#filter)"
+                    />
+                </mask>
+                <filter id="filter">
+                    <feFlood flood-color="white" />
+                    <feComposite in2="SourceAlpha" operator="in" />
+                </filter>
+            </svg>
             <img
                 id="tennis_transformed"
                 class="center opacity-0"
@@ -221,8 +290,9 @@
         </div>
     </body>
     <script>
-        var dreamfight = document.getElementById("dreamfight");
-        var presenting = document.getElementById("presenting");
+        const dreamfight = document.getElementById("dreamfight");
+        const dreamfightImg = document.getElementById("dreamfight-img");
+        const presenting = document.getElementById("presenting");
 
         function fadeInDreamfight() {
             dreamfight.classList.add("fade-in");
@@ -237,10 +307,10 @@
         }
 
         presenting.addEventListener("animationend", function () {
-            if (dreamfight.complete) {
+            if (dreamfightImg.complete) {
                 fadeInDreamfight();
             } else {
-                dreamfight.addEventListener("load", function () {
+                dreamfightImg.addEventListener("load", function () {
                     fadeInDreamfight();
                 });
             }
